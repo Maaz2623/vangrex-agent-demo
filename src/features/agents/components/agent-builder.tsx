@@ -81,6 +81,71 @@ const initialEdges: Edge[] = [
   },
 ];
 
+const AgentNode = ({ data }: { data: any }) => {
+  const Icon = data.icon;
+
+  return (
+    <NodeContainer className="border-foreground/30">
+      <Handle type="target" position={Position.Left} />
+
+      <div className="flex items-center gap-3">
+        <div className="flex size-10 items-center justify-center rounded-lg bg-muted">
+          <Icon className="size-5" />
+        </div>
+
+        <div>
+          <p className="text-sm font-medium">{data.label}</p>
+          <p className="text-xs text-muted-foreground">{data.description}</p>
+        </div>
+      </div>
+
+      <Handle type="source" position={Position.Right} />
+    </NodeContainer>
+  );
+};
+
+const SubAgentNode = ({ data }: { data: any }) => {
+  const Icon = data.icon;
+
+  return (
+    <NodeContainer>
+      <Handle type="target" position={Position.Right} />
+
+      <div className="flex items-center gap-3">
+        <div className="flex size-9 items-center justify-center rounded-lg bg-muted">
+          <Icon className="size-4" />
+        </div>
+
+        <div>
+          <p className="text-sm font-medium">{data.label}</p>
+          <p className="text-xs text-muted-foreground">{data.description}</p>
+        </div>
+      </div>
+    </NodeContainer>
+  );
+};
+
+const ToolNode = ({ data }: { data: any }) => {
+  const Icon = data.icon;
+
+  return (
+    <NodeContainer>
+      <Handle type="target" position={Position.Right} />
+
+      <div className="flex items-center gap-3">
+        <div className="flex size-9 items-center justify-center rounded-lg bg-muted">
+          <Icon className="size-4" />
+        </div>
+
+        <div>
+          <p className="text-sm font-medium">{data.label}</p>
+          <p className="text-xs text-muted-foreground">{data.description}</p>
+        </div>
+      </div>
+    </NodeContainer>
+  );
+};
+
 const nodeTypes = {
   agent: AgentNode,
   subAgent: SubAgentNode,
@@ -220,70 +285,5 @@ const NodeContainer = ({
     >
       {children}
     </div>
-  );
-};
-
-const AgentNode = ({ data }: { data: any }) => {
-  const Icon = data.icon;
-
-  return (
-    <NodeContainer className="border-foreground/30">
-      <Handle type="target" position={Position.Left} />
-
-      <div className="flex items-center gap-3">
-        <div className="flex size-10 items-center justify-center rounded-lg bg-muted">
-          <Icon className="size-5" />
-        </div>
-
-        <div>
-          <p className="text-sm font-medium">{data.label}</p>
-          <p className="text-xs text-muted-foreground">{data.description}</p>
-        </div>
-      </div>
-
-      <Handle type="source" position={Position.Right} />
-    </NodeContainer>
-  );
-};
-
-const SubAgentNode = ({ data }: { data: any }) => {
-  const Icon = data.icon;
-
-  return (
-    <NodeContainer>
-      <Handle type="target" position={Position.Right} />
-
-      <div className="flex items-center gap-3">
-        <div className="flex size-9 items-center justify-center rounded-lg bg-muted">
-          <Icon className="size-4" />
-        </div>
-
-        <div>
-          <p className="text-sm font-medium">{data.label}</p>
-          <p className="text-xs text-muted-foreground">{data.description}</p>
-        </div>
-      </div>
-    </NodeContainer>
-  );
-};
-
-const ToolNode = ({ data }: { data: any }) => {
-  const Icon = data.icon;
-
-  return (
-    <NodeContainer>
-      <Handle type="target" position={Position.Right} />
-
-      <div className="flex items-center gap-3">
-        <div className="flex size-9 items-center justify-center rounded-lg bg-muted">
-          <Icon className="size-4" />
-        </div>
-
-        <div>
-          <p className="text-sm font-medium">{data.label}</p>
-          <p className="text-xs text-muted-foreground">{data.description}</p>
-        </div>
-      </div>
-    </NodeContainer>
   );
 };
